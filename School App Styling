@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>School Application</title>
+  <style>
+    /* Reset default styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    
+    /* Header styles */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    /* Main content styles */
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    /* Footer styles */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>School Application</h1>
+  </header>
+  
+  <div class="container">
+    <h2>Welcome to our School!</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consequat, purus at sagittis luctus, elit lorem efficitur urna, sed eleifend mauris nisl nec eros.</p>
+  </div>
+  
+  <footer>
+    &copy; 2023 School Application. All rights reserved.
+  </footer>
+</body>
+</html>
