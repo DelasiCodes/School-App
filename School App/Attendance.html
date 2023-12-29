@@ -1,0 +1,21 @@
+<!-- Update the dashboard.html template -->
+<!-- Add this section to display and record attendance -->
+{% if user_type == 'teacher' %}
+    <h3>Record Attendance</h3>
+    <form method="post" action="/record_attendance">
+        <label for="course">Select Course:</label>
+        <select id="course" name="course">
+            {% for course in courses %}
+                <option value="{{ course.id }}">{{ course.course_name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+        <br>
+        <label for="present">Present:</label>
+        <input type="checkbox" id="present" name="present" value="1">
+        <br>
+        <input type="submit" value="Record Attendance">
+    </form>
+{% endif %}
