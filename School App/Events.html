@@ -1,0 +1,24 @@
+<!-- Update the dashboard.html template -->
+<!-- Add this section to display and create events -->
+<h3>Events</h3>
+<ul>
+    {% for event in events %}
+        <li>{{ event.event_date }} - {{ event.event_name }}: {{ event.event_description }}</li>
+    {% endfor %}
+</ul>
+
+{% if user_type == 'teacher' or user_type == 'student' %}
+    <h3>Create Event</h3>
+    <form method="post" action="/create_event">
+        <label for="event_name">Event Name:</label>
+        <input type="text" id="event_name" name="event_name" required>
+        <br>
+        <label for="event_date">Event Date:</label>
+        <input type="date" id="event_date" name="event_date" required>
+        <br>
+        <label for="event_description">Event Description:</label>
+        <textarea id="event_description" name="event_description" required></textarea>
+        <br>
+        <input type="submit" value="Create Event">
+    </form>
+{% endif %}
