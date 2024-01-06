@@ -1,0 +1,24 @@
+<!-- Update the dashboard.html template -->
+<!-- Add this section to display and create assignments -->
+<h3>Assignments</h3>
+<ul>
+    {% for assignment in assignments %}
+        <li>{{ assignment.assignment_due_date }} - {{ assignment.assignment_name }}: {{ assignment.assignment_description }}</li>
+    {% endfor %}
+</ul>
+
+{% if user_type == 'teacher' or user_type == 'student' %}
+    <h3>Create Assignment</h3>
+    <form method="post" action="/create_assignment">
+        <label for="assignment_name">Assignment Name:</label>
+        <input type="text" id="assignment_name" name="assignment_name" required>
+        <br>
+        <label for="assignment_due_date">Due Date:</label>
+        <input type="date" id="assignment_due_date" name="assignment_due_date" required>
+        <br>
+        <label for="assignment_description">Assignment Description:</label>
+        <textarea id="assignment_description" name="assignment_description" required></textarea>
+        <br>
+        <input type="submit" value="Create Assignment">
+    </form>
+{% endif %}

@@ -1,0 +1,17 @@
+<!-- Update the dashboard.html template -->
+<!-- Add this section to display academic performance -->
+{% if user_type == 'student' %}
+    <h3>Academic Performance</h3>
+    <ul>
+        {% for course in courses %}
+            <li>{{ course.course_name }}: {% if grades[course.id] %}{{ grades[course.id].grade }}{% else %}N/A{% endif %}</li>
+        {% endfor %}
+    </ul>
+{% elif user_type == 'teacher' %}
+    <h3>My Courses</h3>
+    <ul>
+        {% for course in courses %}
+            <li>{{ course.course_name }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}

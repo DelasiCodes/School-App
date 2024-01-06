@@ -1,0 +1,16 @@
+<!-- edit_profile.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Edit Profile</h2>
+<form method="post" action="{{ url_for('edit_profile') }}">
+    <!-- Add form fields for updating profile information -->
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="{{ user.name }}" required>
+    <br>
+    <label for="profile_picture">Profile Picture URL:</label>
+    <input type="url" id="profile_picture" name="profile_picture" value="{{ user.profile_picture }}" required>
+    <br>
+    <input type="submit" value="Update Profile">
+</form>
+{% endblock %}
