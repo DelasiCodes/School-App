@@ -1,0 +1,25 @@
+<!-- Update the dashboard.html template -->
+<!-- Add this section to display and send messages -->
+<h3>Messages</h3>
+<ul>
+    {% for message in messages %}
+        <li>{{ message.sender_id }} at {{ message.timestamp }}: {{ message.message }}</li>
+    {% endfor %}
+</ul>
+
+{% if user_type == 'teacher' or user_type == 'student' %}
+    <h3>Send Message</h3>
+    <form method="post" action="/send_message">
+        <label for="recipient">Recipient:</label>
+        <select id="recipient" name="recipient">
+            {% for user in users %}
+                <option value="{{ user.id }}">{{ user.username }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <br>
+        <input type="submit" value="Send Message">
+    </form>
+{% endif %}

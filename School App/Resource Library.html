@@ -1,0 +1,24 @@
+<!-- Update the dashboard.html template -->
+<!-- Add this section to display and add resources -->
+<h3>Resource Library</h3>
+<ul>
+    {% for resource in resources %}
+        <li>{{ resource.resource_name }}: {{ resource.resource_description }} - <a href="{{ resource.resource_link }}" target="_blank">Link</a></li>
+    {% endfor %}
+</ul>
+
+{% if user_type == 'teacher' or user_type == 'student' %}
+    <h3>Add Resource</h3>
+    <form method="post" action="/add_resource">
+        <label for="resource_name">Resource Name:</label>
+        <input type="text" id="resource_name" name="resource_name" required>
+        <br>
+        <label for="resource_description">Resource Description:</label>
+        <textarea id="resource_description" name="resource_description" required></textarea>
+        <br>
+        <label for="resource_link">Resource Link:</label>
+        <input type="url" id="resource_link" name="resource_link" required>
+        <br>
+        <input type="submit" value="Add Resource">
+    </form>
+{% endif %}
